@@ -1,0 +1,700 @@
+/* 共通設定 */
+body {
+    font-family: "Fredericka the Great", serif;
+    color: #270707;
+    background-image: url("./img/Background.png");
+    background-repeat: no-repeat;
+    background-size: 1550px 750px;/*横　縦*/
+    /*object-fit: fill;*//*できればレスポンシブやります。*/
+}
+
+/* スクロールバーを表示しない対応 */
+*::-webkit-scrollbar{
+    display:none;
+}  
+
+/* タイトルセクション */
+#title {
+    position: relative;
+    height: 100vh;
+    display: flex; /* Flexboxを使用 */
+    flex-direction: column; /* 縦方向に配置 */
+    justify-content: flex-start; /* 縦方向の中央揃え */
+    align-items: center; /* 横方向の中央揃え */
+}
+
+#title p {
+    font-size: 2em;
+}
+
+/* From Uiverse.io by Mike11jr */ 
+#backToTitleButton {
+    position: relative;
+    top: 5cm;
+    left: 3cm;
+    padding: 1.1em 2em;
+    background: none;
+    border: 2px solid #fff;
+    font-size: 25px;
+    color: #131313;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+    border-radius: 12px;
+    background-color: #ecd448;
+    font-weight: bolder;
+    box-shadow: 0 2px 0 2px #000;
+   }
+   
+   #backToTitleButton:before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 120%;
+    background-color: #ff6700;
+    top: 50%;
+    transform: skewX(30deg) translate(-150%, -50%);
+    transition: all 0.5s;
+   }
+   
+   #backToTitleButton:hover {
+    background-color: #4cc9f0;
+    color: #fff;
+    box-shadow: 0 2px 0 2px #0d3b66;
+   }
+   
+   #backToTitleButton:hover::before {
+    transform: skewX(30deg) translate(150%, -50%);
+    transition-delay: 0.1s;
+   }
+   
+   #backToTitleButton:active {
+    transform: scale(0.9);
+   }
+    
+/* コンテンツ*/
+.contents {
+    text-align: center; /* テキストを中央揃え */
+    margin-top: 100px; 
+    font-size: 35px;
+}   
+
+    
+/*Start button*/
+#StartButton{
+    width: 350px;
+    height: 160px;
+    background-image: url("./img/TitleScreenStartButton.png");
+    background-color: rgba(249, 249, 249, 0);
+    border: none;
+    background-size: cover;
+}
+
+#StartButton:hover{
+    /*margin-top: 0.2cm;*/
+    width: 350px;
+    height: 160px;
+    background-image: url("./img/TitleScreenStartButtonHover.png");
+    background-color: rgba(152, 104, 104, 0);
+    border: none;
+    background-size: cover;
+    cursor: pointer; /* カーソルをポインターに */
+    transition: background-color 0.3s;
+}
+
+#StartButton:active {
+    margin-top: 0.2cm;
+    background-image: url("./img/TitleScreenStartButtonClick.png");
+    background-color: #3e8e4100;
+    box-shadow: 0 5px #66666600;
+    transform: translateY(4px);
+}
+
+/*ゲーム説明*/
+#gameDiscription {
+  position: relative;
+}
+
+#gameDiscription img{
+  position: relative;
+  top: 1cm;
+  left: 4cm;
+  width: 80%;
+}
+
+#gameDiscription button{
+  position: relative;
+  top: 1cm;
+  left: 4cm;
+  width: 3cm;
+  background-color: rgb(240, 227, 52);
+
+}
+
+
+/* From Uiverse.io by vinodjangid07 */ 
+.faq-button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background-color: #656565;
+  background-image: linear-gradient(147deg, #e4f431 0%, #efc854 74%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.151);
+  position: fixed;
+  top: 1.5cm;
+  left: 1.5cm;
+}
+.faq-button svg {
+  height: 1.5em;
+  fill: white;
+}
+.faq-button:hover svg {
+  animation: jello-vertical 0.7s both;
+}
+@keyframes jello-vertical {
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+  30% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+  40% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+  50% {
+    transform: scale3d(0.85, 1.15, 1);
+  }
+  65% {
+    transform: scale3d(1.05, 0.95, 1);
+  }
+  75% {
+    transform: scale3d(0.95, 1.05, 1);
+  }
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.tooltip {
+  position: absolute;
+  top: -20px;
+  opacity: 0;
+  background-color: #656565;
+  background-image: linear-gradient(147deg, #e4f431 0%, #efc854 74%);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition-duration: 0.2s;
+  pointer-events: none;
+  letter-spacing: 0.5px;
+}
+
+.tooltip::before {
+  position: absolute;
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: #bbff10;
+  background-size: 1000%;
+  background-position: center;
+  transform: rotate(45deg);
+  bottom: -15%;
+  transition-duration: 0.3s;
+}
+
+.faq-button:hover .tooltip {
+  top: -40px;
+  width: 3cm;
+  opacity: 1;
+  transition-duration: 0.3s;
+}
+
+/*Select WordGroup*/
+#selectScreen {
+    text-align: center; /* テキストを中央揃え */
+    margin-top: 300px;
+}
+
+/* selectButton */ 
+.button {
+    --stone-50: #fafaf9;
+    --stone-800: #292524;
+    --yellow-400: #e1de0a;
+
+    font-size: 3rem;
+    cursor: pointer;
+    position: relative;
+    font-family: "Rubik", sans-serif;
+    font-weight: bold;
+    line-height: 1;
+    padding: 1px;
+    transform: translate(-4px, -4px);
+    outline: 2px solid transparent;
+    outline-offset: 5px;
+    border-radius: 9999px;
+    background-color: var(--stone-800);
+    color: var(--stone-800);
+    transition:
+      transform 150ms ease,
+      box-shadow 150ms ease;
+    text-align: center;
+    box-shadow:
+      0.5px 0.5px 0 0 var(--stone-800),
+      1px 1px 0 0 var(--stone-800),
+      1.5px 1.5px 0 0 var(--stone-800),
+      2px 2px 0 0 var(--stone-800),
+      2.5px 2.5px 0 0 var(--stone-800),
+      3px 3px 0 0 var(--stone-800),
+      0 0 0 2px var(--stone-50),
+      0.5px 0.5px 0 2px var(--stone-50),
+      1px 1px 0 2px var(--stone-50),
+      1.5px 1.5px 0 2px var(--stone-50),
+      2px 2px 0 2px var(--stone-50),
+      2.5px 2.5px 0 2px var(--stone-50),
+      3px 3px 0 2px var(--stone-50),
+      3.5px 3.5px 0 2px var(--stone-50),
+      4px 4px 0 2px var(--stone-50);
+  
+    &:hover {
+      transform: translate(0, 0);
+      box-shadow: 0 0 0 2px var(--stone-50);
+    }
+  
+    &:active,
+    &:focus-visible {
+      outline-color: var(--yellow-400);
+    }
+  
+    &:focus-visible {
+      outline-style: dashed;
+    }
+  
+    & > div {
+      position: relative;
+      pointer-events: none;
+      background-color: var(--yellow-400);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 9999px;
+  
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 9999px;
+        opacity: 0.5;
+        background-image: radial-gradient(
+            rgb(255 255 255 / 80%) 20%,
+            transparent 20%
+          ),
+          radial-gradient(rgb(255 255 255 / 100%) 20%, transparent 20%);
+        background-position:
+          0 0,
+          4px 4px;
+        background-size: 8px 8px;
+        mix-blend-mode: hard-light;
+        animation: dots 0.5s infinite linear;
+      }
+  
+      & > span {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 30px 60px;
+        gap: 0.25rem;
+        filter: drop-shadow(0 -1px 0 rgba(255, 255, 255, 0.25));
+  
+        &:active {
+          transform: translateY(2px);
+        }
+      }
+    }
+  }
+  
+  @keyframes dots {
+    0% {
+      background-position:
+        0 0,
+        4px 4px;
+    }
+    100% {
+      background-position:
+        8px 0,
+        12px 4px;
+    }
+  }
+  
+
+/*back button, if user miss selected wordGroup*/
+/* From Uiverse.io by Jedi-hongbin */ 
+#backButton {
+    position: fixed;
+    top: 1cm;
+    left: 1cm;
+    width: 150px;
+    padding: 0;
+    border: none;
+    transform: rotate(5deg);
+    transform-origin: center;
+    font-family: "Gochi Hand", cursive;
+    text-decoration: none;
+    font-size: 15px;
+    cursor: pointer;
+    padding-bottom: 3px;
+    border-radius: 5px;
+    box-shadow: 0 2px 0 #494a4b;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background-color: #dba25c;
+}
+
+#backButton span {
+    background: #fbf983;
+    display: block;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: 2px solid #494a4b;
+  }
+
+#backButton:active {
+    transform: translateY(5px);
+    padding-bottom: 0px;
+    outline: 0;
+  }
+
+
+
+/* 3seconds prepare screen */
+#prepareScreen {
+    text-align: center;
+    font-size: 100px;
+}
+
+/* From Uiverse.io by alexmaracinaru */ 
+#yesButton { /* button を #yesButton に変更 */
+    cursor: pointer;
+    font-weight: 700;
+    transition: all 0.2s;
+    padding: 20px 30px;
+    border-radius: 100px;
+    background: #cfef00;
+    border: 1px solid transparent;
+    display: relative;
+    align-items: center;
+    font-size: 40px;
+}
+
+#yesButton:hover { /* button を #yesButton に変更 */
+    background: #c4e201;
+}
+
+#yesButton > svg { /* button を #yesButton に変更 */
+    width: 34px;
+    margin-left: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+#yesButton:hover svg { /* button を #yesButton に変更 */
+    transform: translateX(5px);
+}
+
+#yesButton:active { /* button を #yesButton に変更 */
+    transform: scale(0.95);
+}
+
+
+/* GameScreen */
+#gameScreen {
+    display: flex;
+    position: fixed;
+    top: 20px;
+}
+
+#questionImage {
+    position: absolute;
+    width: 150px; /* 画像の幅を設定 */
+    height: auto; /* 高さを自動調整 */
+    left: 0;
+    top: 0;
+}
+
+.answer-container {
+    position: relative;
+    width: 200px;
+    height: 40px;
+}
+
+#answerDisplay {
+    display: none;
+    position: absolute;
+    top: 5cm;
+    left: 18cm;
+    font-size: 40px;
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+}
+
+#answerInput {
+    font-size: 20px;
+    padding: 10px;
+    position: fixed;
+    left: 17.5cm;
+    background-color: #f8f8f800;
+    box-sizing: border-box;
+}
+
+/* From Uiverse.io by cohencoo */ 
+#answerInput {
+    position: fixed;
+    top: 3cm;
+    border-radius: 10px;
+    outline: 2px solid #FEBF00;
+    border: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #e2e2e2;
+    outline-offset: 3px;
+    padding: 10px 1rem;
+    transition: 0.25s;
+  }
+  
+  #answerInput:focus {
+    outline-offset: 5px;
+    background-color: #fff
+  }
+
+/* Life Points Box */
+#lifePointsBox {
+    position: absolute;
+    top: 0px;
+    left: 40px;
+}
+
+#lifePointsBox p {
+    font-size: 30px;
+}
+
+#scoreBox {
+    position: fixed;
+    top: 50px;
+    right: 40px;
+}
+
+#scoreBox p {
+    font-size: 30px;
+}
+
+#timeCount {
+    position: fixed;
+    top: 30px;
+    right: 18.5cm;
+}
+
+#timeCount p{
+    font-size: 30px;
+}
+
+/*Correct answer screen*/
+#correctScreen {
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+#correct {
+    width: 500px;
+    height: 500px;
+    background-image: url("./img/maru.png");
+    border : none;
+    background-color: rgba(249, 249, 249, 0);
+}
+
+/*incorrect answer screen*/
+#inCorrectScreen {
+    color: red;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+#inCorrect {
+    width: 500px;
+    height: 500px;
+    background-image: url("./img/batu.png");
+    border : none;
+    background-repeat: no-repeat;
+    background-color: rgba(249, 249, 249, 0);
+}
+
+/*nextButton*/
+#nextButton {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/*The final result screen contain score and user answer ditel*/
+#resultScreen {
+    font-size: 18px;
+    margin-top: 2cm;
+    margin-left: 8cm;
+}
+
+#resultText {
+    font-size: 7em;
+    margin-bottom: 20px;
+}
+
+#retryButton {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#retryButton:hover {
+    background-color: #3e8e41;
+}
+
+#detailScreen h2 {
+    font-size: 3em;
+    position: fixed;
+    top: 10px;
+    left: 16cm;
+}
+
+
+/* From Uiverse.io by Jedi-hongbin */ 
+#closeButton {
+  background-color: #ffed4b;
+  border: none;
+  color: #000;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 0 #fff;
+  box-shadow: 4px 4px 0 #000;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+#closeButton:before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  left: -20%;
+  width: 150%;
+  height: 150%;
+  background-color: rgba(0,0,0,0.2);
+  transform: rotate(45deg);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+#closeButton:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 6px 6px 0 #000;
+}
+
+#closeButton:hover:before {
+  opacity: 1;
+}
+
+#closeButton:active {
+  transform: translate(0px, 0px);
+  box-shadow: 4px 4px 0 #000;
+}
+
+#closeButton:active:before {
+  opacity: 0;
+}
+
+
+#detailedResults {
+    position: fixed;
+    top: 100px;
+    left: 2cm;
+    font-size: 2em;
+    overflow-y: auto; /* 垂直方向のスクロールバーを許可 */
+    /* 必要に応じて高さ制限を追加 */
+    max-height: 600px; /* 最大の高さを設定 */
+}
+
+
+/* スクロールバーが表示されている場合のみ、スクロールバーをカスタマイズ */
+#detailScreen::-webkit-scrollbar {
+    width: 10px; /* スクロールバーの幅 */
+}
+
+#detailScreen::-webkit-scrollbar-track {
+    background: #f1f1f1; /* スクロールバーの背景色 */
+}
+
+#detailScreen::-webkit-scrollbar-thumb {
+    background: #888; /* スクロールバーのつまみの色 */
+}
+
+#detailScreen::-webkit-scrollbar-thumb:hover {
+    background: #555; /* スクロールバーのつまみにマウスホバーした時の色 */
+}
+
+/* From Uiverse.io by Mike11jr */ 
+#detailButton {
+    position: relative;
+    top: 5cm;
+    left: 12cm;
+    padding: 1.1em 2em;
+    background: none;
+    border: 2px solid #fff;
+    font-size: 25px;
+    color: #131313;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+    border-radius: 12px;
+    background-color: #ecd448;
+    font-weight: bolder;
+    box-shadow: 0 2px 0 2px #000;
+   }
+   
+   #detailButton:before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 120%;
+    background-color: #ff6700;
+    top: 50%;
+    transform: skewX(30deg) translate(-150%, -50%);
+    transition: all 0.5s;
+   }
+   
+   #detailButton:hover {
+    background-color: #4cc9f0;
+    color: #fff;
+    box-shadow: 0 2px 0 2px #0d3b66;
+   }
+   
+   #detailButton:hover::before {
+    transform: skewX(30deg) translate(150%, -50%);
+    transition-delay: 0.1s;
+   }
+   
+   #detailButton:active {
+    transform: scale(0.9);
+   }
+

@@ -1,0 +1,126 @@
+<!DOCTYPE html><!--html5で書かれた宣言-->
+<html lang="ja">
+    <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Kosugi+Maru&display=swap" rel="stylesheet">
+	<title>英語！</title>
+    <!-- CSSファイルへのリンク -->
+	<link rel="stylesheet" href="./english_style.css" />
+	<link rel="stylesheet" href="./jquery-ui.min.css">
+	<!-- スクリプト -->
+    <script type="text/javascript" src="./english_question.js"></script>
+	<script type="text/javascript" src="./jquery-3.7.1.min.js"></script>
+	<script type="text/javascript" src="./english_main.js"></script>
+	<script type="text/javascript" src="./jquery-ui.min.js"></script>
+    </head>
+    <body>
+        <body>
+            <!-- タイトル画面 -->
+            <div id="title">
+                <div class="contents">
+                    <p>Can you guess the name!?</p>
+                </div>
+                <button id="StartButton"> </button>
+                <button class="faq-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                      <path
+                        d="M80 160c0-35.3 28.7-64 64-64h32c35.3 0 64 28.7 64 64v3.6c0 21.8-11.1 42.1-29.4 53.8l-42.2 27.1c-25.2 16.2-40.4 44.1-40.4 74V320c0 17.7 14.3 32 32 32s32-14.3 32-32v-1.4c0-8.2 4.2-15.8 11-20.2l42.2-27.1c36.6-23.6 58.8-64.1 58.8-107.7V160c0-70.7-57.3-128-128-128H144C73.3 32 16 89.3 16 160c0 17.7 14.3 32 32 32s32-14.3 32-32zm80 320a40 40 0 1 0 0-80 40 40 0 1 0 0 80z"
+                      ></path>
+                    </svg>
+                    <span class="tooltip">How to play?</span>
+                  </button>
+            </div>
+
+            <!-- ゲーム説明画面 -->
+            <div id="gameDiscription">
+                <div class="firstPage">
+                    <img src="./img/gameDiscriptionImgs/firstPage.png">
+                    <button id="firstPageNext">次へ</button>
+                </div>
+                <div class="secondPage" style="display: none;">
+                    <img src="./img/gameDiscriptionImgs/secondPage.png">
+                    <button id="backToStartScreen">タイトルへ戻る</button>
+                </div>
+            </div>
+
+            <!-- 選択画面 -->
+            <div id="selectScreen" style="display: none;">
+                <button id="clothingButton" data-group="clothing">衣類</button>
+                <button id="foodButton" data-group="food">食べ物</button>
+                <button id="animalButton" data-group="animal">動物</button>
+            </div>
+
+            <!-- 準備画面 -->
+            <div id="prepareScreen" style="display: none;">
+                <!-- From Uiverse.io by Jedi-hongbin --> 
+                <button id="backButton">
+                    <span>Back to change selection</span>
+                  </button>
+                <p id="prepareText">Are you ready!?</p>
+                <button id="yesButton">
+                    <span>Yes!!</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 74 74"
+                      height="34"
+                      width="34"
+                    >
+                      <circle stroke-width="3" stroke="black" r="35.5" cy="37" cx="37"></circle>
+                      <path
+                        fill="black"
+                        d="M25 35.5C24.1716 35.5 23.5 36.1716 23.5 37C23.5 37.8284 24.1716 38.5 25 38.5V35.5ZM49.0607 38.0607C49.6464 37.4749 49.6464 36.5251 49.0607 35.9393L39.5147 26.3934C38.9289 25.8076 37.9792 25.8076 37.3934 26.3934C36.8076 26.9792 36.8076 27.9289 37.3934 28.5147L45.8787 37L37.3934 45.4853C36.8076 46.0711 36.8076 47.0208 37.3934 47.6066C37.9792 48.1924 38.9289 48.1924 39.5147 47.6066L49.0607 38.0607ZM25 38.5L48 38.5V35.5L25 35.5V38.5Z"
+                      ></path>
+                    </svg>
+                  </button>
+                
+            </div>
+
+            <!-- ゲーム画面 -->
+            <div id="gameScreen" style="display: none;">
+                <div id="lifePointsBox">
+                    <p>Life Points: <span id="lifePoints">3</span></p>
+                </div>
+                <div id="scoreBox">
+                    <p>Score: <span id="score">0</span></p>
+                </div>
+                <div id="timeCount">
+                    <p>Time: <span id="seconds">10</span></p>
+                </div>
+                <img id="questionImage" src="" alt="Question Image" style="display: none;">
+                <div class="answer-container">
+                    <div id="answerDisplay" type="text"></div>
+                    <input type="text" id="answerInput" placeholder="Write your answer here..." name="text">
+                </div>
+            </div>
+
+            <!--回答正解画面-->
+            <div id="correctScreen" style="display: none;">
+                <img id="correct">
+            </div>
+
+            <!--回答不正解画面-->
+            <div id="inCorrectScreen" style="display: none;">
+                <img id="inCorrect">
+            </div>            
+
+
+            <!-- 結果画面 -->
+            <div id="resultScreen" style="display: none;">
+                <p id="resultText"></p><!-- should be score and userAnswer,correctAnswer -->
+                <button id="backToTitleButton">Title</button>
+                <button id="detailButton">Detail</button>
+            </div>
+
+            <!-- 詳細画面 -->
+            <div id="detailScreen" style="display: none;">
+                <!-- From Uiverse.io by Jedi-hongbin --> 
+                <button id="closeButton">Close</button>
+                <h2>Detailed Results</h2>
+                <div id="detailedResults"></div>
+            </div>
+        </body>
+</html>
